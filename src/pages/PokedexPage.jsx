@@ -14,26 +14,37 @@ export default function PokedexPage() {
       setPokemonList(data);
     }
     load();
-
-    // 🔥 Move para o topo sempre que a página mudar
     window.scrollTo({ top: 0, behavior: "smooth" });
-
   }, [page]);
 
   return (
     <div className="p-6">
 
-      {/* Voltar */}
-      <Link
-        to="/"
-        className="fixed top-4 left-4 bg-red-600 text-white px-3 py-2 rounded-lg shadow hover:bg-red-700 z-50"
-      >
-        Voltar para o Início
-      </Link>
+      {/* HEADER FIXO */}
+      <div className="fixed top-0 left-0 w-full bg-white py-4 px-4 shadow-lg z-50 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2">
 
-      <h1 className="text-4xl pokemon-title text-center mb-6 text-red-600">
-        Pokédex Completa
-      </h1>
+        {/* Título */}
+        <h1 className="text-3xl sm:text-4xl pokemon-title text-center text-red-600">
+          Pokédex Completa
+        </h1>
+
+        {/* Botão Voltar */}
+        <Link
+          to="/"
+          className="
+            bg-red-600 text-white px-3 py-2 rounded-lg shadow hover:bg-red-700
+            self-center            /* CENTRALIZADO NO CELULAR */
+            sm:self-auto           /* DESATIVA NO DESKTOP */
+            sm:absolute sm:left-4  /* ESQUERDA NO DESKTOP */
+          "
+        >
+          Voltar
+        </Link>
+
+      </div>
+
+      {/* Espaço abaixo do header */}
+      <div className="mt-32"></div>
 
       {/* Listagem */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -43,7 +54,7 @@ export default function PokedexPage() {
       </div>
 
       {/* Paginação */}
-      <div className="flex justify-center gap-6 mt-6">
+      <div className="flex justify-center gap-6 mt-6 mb-6">
         <button
           onClick={() => setPage((p) => Math.max(p - 1, 0))}
           className="px-4 py-2 bg-red-500 text-white rounded-md disabled:opacity-50"
@@ -59,6 +70,7 @@ export default function PokedexPage() {
           Próxima
         </button>
       </div>
+
     </div>
   );
 }
