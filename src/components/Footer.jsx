@@ -8,7 +8,7 @@ export function Footer() {
       />
 
       {/* Título */}
-      <p className="text-xl sm:text-5xl pokemon-title tracking-wide margin p-2">
+      <p className="pokemon-title text-3xl sm:text-5xl tracking-wide margin p-2">
         Pokédex Interativa
       </p>
       {/* Subtexto */}
