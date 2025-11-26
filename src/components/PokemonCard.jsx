@@ -40,7 +40,7 @@ export function PokemonCard({ pokemon }) {
           <img
             src={image}
             alt={pokemon.name}
-            className="w-28 h-28 object-contain drop-shadow-xl hover:scale-110 transition-transform duration-300"
+            className="w-80 h-28 object-contain drop-shadow-xl hover:scale-110 transition-transform duration-300"
           />
         ) : (
           <div className="w-28 h-28 flex items-center justify-center bg-gray-200 rounded-lg text-gray-500">Sem imagem</div>
